@@ -14,7 +14,3 @@
 登录成功后会重定向跳转两次，其中第二次跳转的url中有获取userId所需的ticket字段，需要保存下来。userId是获取所有课程的信息时必要的信息。
 
 云课堂应用里的各种信息是通过向某个链接发送GET请求返回的，而不是全部写在html页面中。每一次请求信息的url后面都要跟一个"validCode"参数，这个参数在请求非隐私信息时是"md5(“id=”+videoDetailId+"&signKey=123123") （&signKey=123123"这个字符串的md5结果的16进制表示）；获取单个视频的详细信息时是md5(“id=”+videoDetailId+"&signKey=123123")；获取用户的个人信息时是md5(“id=”+userId+"&signKey=123123")
-
-
-
-ps: 逆向的过程中发现了一个爬虫用不上的奇怪密钥："mysupersecret".
