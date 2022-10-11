@@ -1,6 +1,6 @@
 '''
 Author: Edward Wen
-Last Edit: 2022.10.7
+Last Edit: 2022.10.11
 github: https://github.com/Edelweiss-qianyu
 用于下载抗大云课堂中课程视频的库
 '''
@@ -191,9 +191,9 @@ def getVideoUrl3(videoDetail):
     if len(viewFiles) == 0: return None
     return videoDetail['innerIp'] + '/' + viewFiles[0]['videoStorePath']
 
-def download(url, saveto):
+def download(url, saveto,stream=False):
     # 下载url到本地
-    resp = rq.get(url)
+    resp = rq.get(url,stream=stream)
     if resp.status_code == 404:
         return False
     with open(saveto, 'wb') as f:
